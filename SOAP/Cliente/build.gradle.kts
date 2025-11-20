@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-
+    implementation(libs.bundles.cxf.soap.client)
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

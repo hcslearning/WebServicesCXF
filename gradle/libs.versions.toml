@@ -22,4 +22,5 @@ logback-classic    = { module = "ch.qos.logback:logback-classic",       version.
 
 [bundles]
 cxf-soap-server   = ["apache-cxf-core", "apache-cxf-jaxws", "apache-cxf-http", "apache-cxf-jetty"]
+cxf-soap-client   = ["apache-cxf-core", "apache-cxf-jaxws", "apache-cxf-http"]
 cxf-logback       = ["apache-cxf-logging", "logback-core", "logback-classic"]

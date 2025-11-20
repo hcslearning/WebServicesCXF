@@ -1,0 +1,18 @@
+= Web Services con Apache CXF
+
+== SOAP
+
+=== Servidor
+
+=== Cliente
+
+La manera más sencilla de conseguir el programa *_wsdl2java_* es descargar la distribución binaria de Apache CXF, la cual puede ser encontrada en https://cxf.apache.org/download.html.
+
+En el siguiente ejemplo la opción -p indica el paquete donde tienen que generarse las clases.
+
+[source, bash]
+----
+$ wsdl2java -p cl.hcs.ws.soap.generado http://localhost:8080/soap/prueba?wsdl
+----
+
+== REST
