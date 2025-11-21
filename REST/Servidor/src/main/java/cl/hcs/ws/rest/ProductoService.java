@@ -42,7 +42,12 @@ public class ProductoService {
     public Response addProducto(Producto nuevo) {
         boolean existe = productos.stream().anyMatch(p -> p.getId() == nuevo.getId());
         if (existe) {
-            throw new WebApplicationException("Ya existe un producto con ese ID", Response.Status.CONFLICT);
+            throw new WebApplicationException(
+                    Response.status(Response.Status.CONFLICT)
+                            .entity("Error al agregar el producto nuevo, ya existe un producto con el ID " + nuevo.getId())
+                            .type(MediaType.TEXT_PLAIN)
+                            .build()
+            );
         }
         productos.add(nuevo);
         return Response.status(Response.Status.CREATED).entity(nuevo).build();
@@ -59,10 +64,18 @@ public class ProductoService {
 
     @DELETE
     @Path("/{id}")
+    @Consumes(MediaType.WILDCARD)
+    @Produces(MediaType.WILDCARD)
     public Response deleteProducto(@PathParam("id") long id) {
         boolean eliminado = productos.removeIf(p -> p.getId() == id);
         if (!eliminado) {
-            throw new WebApplicationException("Producto no encontrado", Response.Status.NOT_FOUND);
+            //throw new WebApplicationException("Producto no encontrado", Response.Status.NOT_FOUND);
+            throw new WebApplicationException(
+                    Response.status(Response.Status.NOT_FOUND)
+                            .entity("Error al intentar eliminar el producto, no existe ninguno con el ID " + id)
+                            .type(MediaType.TEXT_PLAIN)
+                            .build()
+            );
         }
         return Response.noContent().build(); // http response 204
     }
