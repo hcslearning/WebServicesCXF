@@ -11,16 +11,26 @@ jax-rs        = "3.1.0"
 [libraries]
 junit-jupiter      = { module = "org.junit.jupiter:junit-jupiter",      version.ref = "junit-jupiter" }
 
+# Apache CXF Transversal
 apache-cxf-core    = { module = "org.apache.cxf:cxf-core",              version.ref = "cxf" }
-apache-cxf-jaxws   = { module = "org.apache.cxf:cxf-rt-frontend-jaxws", version.ref = "cxf" }
 apache-cxf-http    = { module = "org.apache.cxf:cxf-rt-transports-http",version.ref = "cxf"}
 apache-cxf-jetty   = { module = "org.apache.cxf:cxf-rt-transports-http-jetty", version.ref = "cxf"}
 
+# JAX-WS
+apache-cxf-jaxws   = { module = "org.apache.cxf:cxf-rt-frontend-jaxws", version.ref = "cxf" }
+
+# LOGGING
 apache-cxf-logging = { module = "org.apache.cxf:cxf-rt-features-logging",version.ref = "cxf"}
 logback-core       = { module = "ch.qos.logback:logback-core",          version.ref = "logback" }
 logback-classic    = { module = "ch.qos.logback:logback-classic",       version.ref = "logback" }
+
+# JAX-RS
+apache-cxf-jaxrs   = { module = "org.apache.cxf:cxf-rt-frontend-jaxrs",        version.ref = "cxf"}
+apache-cxf-rs-ext  = { module = "org.apache.cxf:cxf-rt-rs-extension-providers",version.ref = "cxf" }
+eclipse-yasson     = { module = "org.eclipse:yasson",                          version.ref = "yasson" }
 
 [bundles]
 cxf-soap-server   = ["apache-cxf-core", "apache-cxf-jaxws", "apache-cxf-http", "apache-cxf-jetty"]
 cxf-soap-client   = ["apache-cxf-core", "apache-cxf-jaxws", "apache-cxf-http"]
 cxf-logback       = ["apache-cxf-logging", "logback-core", "logback-classic"]
+cxf-rest-server   = ["apache-cxf-jaxrs", "apache-cxf-rs-ext", "eclipse-yasson", "apache-cxf-core", "apache-cxf-http", "apache-cxf-jetty"]

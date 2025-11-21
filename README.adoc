@@ -4,6 +4,11 @@
 
 === Servidor
 
+[source, bash]
+----
+$ ./gradlew :SOAPServidor:run
+----
+
 === Cliente
 
 La manera más sencilla de conseguir el programa *_wsdl2java_* es descargar la distribución binaria de Apache CXF, la cual puede ser encontrada en https://cxf.apache.org/download.html.
@@ -15,4 +20,23 @@ En el siguiente ejemplo la opción -p indica el paquete donde tienen que generar
 $ wsdl2java -p cl.hcs.ws.soap.generado http://localhost:8080/soap/prueba?wsdl
 ----
 
+[source, bash]
+----
+$ ./gradlew :SOAPCliente:run
+----
+
 == REST
+
+=== Servidor
+
+[source, bash]
+----
+$ ./gradlew :RESTServidor:run
+----
+
+=== Cliente
+
+[source, bash]
+----
+$ ./gradlew :RESTCliente:run
+----
