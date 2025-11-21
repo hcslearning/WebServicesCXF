@@ -27,10 +27,14 @@ logback-classic    = { module = "ch.qos.logback:logback-classic",       version.
 # JAX-RS
 apache-cxf-jaxrs   = { module = "org.apache.cxf:cxf-rt-frontend-jaxrs",        version.ref = "cxf"}
 apache-cxf-rs-ext  = { module = "org.apache.cxf:cxf-rt-rs-extension-providers",version.ref = "cxf" }
-eclipse-yasson     = { module = "org.eclipse:yasson",                          version.ref = "yasson" }
+apache-cxf-rs-client={ module = "org.apache.cxf:cxf-rt-rs-client",             version.ref = "cxf" }
+
+# Jakarta JSON Binding (JSON-B)
+eclipse-yasson     = { module = "org.eclipse:yasson", version.ref = "yasson" }
 
 [bundles]
 cxf-soap-server   = ["apache-cxf-core", "apache-cxf-jaxws", "apache-cxf-http", "apache-cxf-jetty"]
 cxf-soap-client   = ["apache-cxf-core", "apache-cxf-jaxws", "apache-cxf-http"]
 cxf-logback       = ["apache-cxf-logging", "logback-core", "logback-classic"]
 cxf-rest-server   = ["apache-cxf-jaxrs", "apache-cxf-rs-ext", "eclipse-yasson", "apache-cxf-core", "apache-cxf-http", "apache-cxf-jetty"]
+cxf-rest-client   = ["apache-cxf-rs-client", "apache-cxf-rs-ext", "eclipse-yasson"]

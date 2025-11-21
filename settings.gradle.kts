@@ -20,3 +20,6 @@ project(":SOAPCliente").projectDir = file("SOAP/Cliente")
 
 include(":RESTServidor")
 project(":RESTServidor").projectDir = file("REST/Servidor")
+
+include(":RESTCliente")
+project(":RESTCliente").projectDir = file("REST/Cliente")
